@@ -119,10 +119,18 @@ txtNumber.addEventListener("blur", function(event){
 }) // txtNumber.blur
 
 window.addEventListener("load", function(event){
-    contador = parseInt (localStorage.getItem("contadorProductos"));
-    totalEnProductos = parseInt (localStorage.getItem("totalEnProductos"));
-    costoTotal = parseFloat(localStorage.getItem("costoTotal"));
-
+    if (localStorage.getItem("contadorProductos")==null){
+       localStorage.getItem("contadorProductos", "0");
+    } //if
+    if (localStorage.getItem("totalEnProductos")==null){
+        this.localStorage.setItem("totalEnProductos", "0");
+    } //if
+    if (localStorage.getItem("costoTotal")==null){
+        this.localStorage.setItem("costoTotal", "0.0");
+    } //if
+    contador = parseInt(localStorage.getItem("contadorProductos"));
+    totalEnProductos = parseInt(localStorage.getItem("totalEnProductos"));
+    costoTotal = parseFloat(this.localStorage.getItem("costoTotal"));
     
     contadorProductos.innerText= contador;
     productosTotal.innerText=totalEnProductos;
