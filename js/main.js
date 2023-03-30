@@ -117,3 +117,15 @@ txtNumber.addEventListener("blur", function(event){
     event.preventDefault();
     txtNumber.value = txtNumber.value.trim()
 }) // txtNumber.blur
+
+window.addEventListener("load", function(event){
+    contador = parseInt (localStorage.getItem("contadorProductos"));
+    totalEnProductos = parseInt (localStorage.getItem("totalEnProductos"));
+    costoTotal = parseFloat(localStorage.getItem("costoTotal"));
+
+    
+    contadorProductos.innerText= contador;
+    productosTotal.innerText=totalEnProductos;
+    precioTotal.innerText= `$ ${costoTotal}`;
+
+});
