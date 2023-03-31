@@ -150,6 +150,19 @@ window.addEventListener("load", function(event){
        localStorage.setItem("resumen", resumen);
     } //if
     let res = JSON.parse(localStorage.getItem("resumen"));
+    if (localStorage.getItem("datos")!= null ) {
+        datos =JSON.parse(localStorage.getItem("datos"));
+
+        datos.forEach(r => {
+            let row = `<tr>
+            <th>${r.id}</th>
+            <td>${r.nombre}</td>
+            <td>${r.cantidad}</td>
+            <td>${r.precio}</td>
+            </tr>`;
+            cuerpoTabla[0].insertAdjacentHTML("beforeend", row);
+        });
+    }// != null
     //if (localStorage.getItem("totalEnProductos")==null){
      //   this.localStorage.setItem("totalEnProductos", "0");
     //} //if
