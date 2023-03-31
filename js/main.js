@@ -20,6 +20,9 @@ let idTimeout;
 let precio = 0;
 let contador =0;
 let totalEnProductos =0;
+
+let datos =[] ; //aqui se almacenarán los datos de la tabla 
+
 //Para el boton limpiar
 btnClear.addEventListener("click",function(event){
     event.preventDefault();
@@ -98,6 +101,18 @@ btnAgregar.addEventListener("click", function(event){
     <td>${txtNumber.value}</td>
     <td>${precio}</td>
     </tr>`;
+
+    let elemento = `{
+                    "id": ${contador},
+                    "nombre":   "${txtNombre.value}",
+                    "cantidad": "${txtNumber.value}",
+                    "precio":    "${precio}"
+                     }`;
+
+    datos.push( JSON.parse(elemento)  ); 
+    
+    localStorage.setItem("datos", JSON.stringify(datos));
+
     cuerpoTabla[0].insertAdjacentHTML("beforeend", row);
     contadorProductos.innerText=contador;
     totalEnProductos += parseFloat(txtNumber.value);
